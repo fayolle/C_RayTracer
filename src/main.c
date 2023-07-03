@@ -10,7 +10,7 @@
 #include "material.h"
 
 
-vec3 color(ray r, struct sphere *spheres, int nsph, int depth) {
+vec3 color(ray r, sphere *spheres, int nsph, int depth) {
     hit_record rec;
     if (world_hit(spheres, nsph, &r, 0.001, MAXFLOAT, &rec)) {
         ray scattered;
@@ -50,13 +50,13 @@ main(int argc, char **argv) {
     int ir, ig, ib;
 
 
-    struct material lamb1 = { .albedo.x = 0.1,.albedo.y = 0.2,.albedo.z = 0.5,.scatter = lambertian_scatter };
-    struct material lamb2 = { .albedo.x = 0.5,.albedo.y = 0.5,.albedo.z = 0.5,.scatter = lambertian_scatter };
-    struct material metal1 = { .albedo.x = 0.8,.albedo.y = 0.6,.albedo.z = 0.2,.scatter = metal_scatter };
-    struct material dielectric = { .ref_idx = 1.5,.scatter = dielectric_scatter };
+    material lamb1 = { .albedo.x = 0.1,.albedo.y = 0.2,.albedo.z = 0.5,.scatter = lambertian_scatter };
+    material lamb2 = { .albedo.x = 0.5,.albedo.y = 0.5,.albedo.z = 0.5,.scatter = lambertian_scatter };
+    material metal1 = { .albedo.x = 0.8,.albedo.y = 0.6,.albedo.z = 0.2,.scatter = metal_scatter };
+    material dielectric = { .ref_idx = 1.5,.scatter = dielectric_scatter };
 
 
-    struct sphere world[] = {
+    sphere world[] = {
       {.center.x = 0,.center.y = 0,.center.z = -1,.radius = 0.5,.mat = &lamb1 },
       {.center.x = 0,.center.y = -100.5,.center.z = -1,.radius = 100,.mat = &lamb2 },
       {.center.x = 1,.center.y = 0,.center.z = -1,.radius = 0.5,.mat = &metal1 },
@@ -92,7 +92,7 @@ main(int argc, char **argv) {
                 float u = (j + unitrand()) / (float)width;
                 float v = ((height - i) + unitrand()) / (float)height;
                 ray r = camera_cast_ray(&cam, u, v);
-                col = vec3_add_vec(col, color(r, world, sizeof(world) / sizeof(struct sphere), 0));
+                col = vec3_add_vec(col, color(r, world, sizeof(world) / sizeof(sphere), 0));
             }
             col = vec3_divide_float(col, ns);
             col = (vec3) { .x = sqrtf(col.x), .y = sqrtf(col.y), .z = sqrtf(col.z) };

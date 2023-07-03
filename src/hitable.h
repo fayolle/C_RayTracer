@@ -13,7 +13,7 @@ typedef struct sphere {
 } sphere;
 
 int sphere_hit(sphere *sp, const ray *r, float t_min, float t_max, hit_record *hit);
-int world_hit(struct sphere *spheres, int n, const ray *r, float t_min, float t_max, hit_record *hit);
+int world_hit(sphere *spheres, int n, const ray *r, float t_min, float t_max, hit_record *hit);
 vec3 random_in_unit_sphere();
 
 #endif

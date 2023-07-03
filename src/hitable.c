@@ -27,7 +27,7 @@ int sphere_hit(sphere *sp, const ray *r, float t_min, float t_max, hit_record *h
     return 0;
 }
 
-int world_hit(struct sphere *spheres, int n, const ray *r, float t_min, float t_max, hit_record *hit) {
+int world_hit(sphere *spheres, int n, const ray *r, float t_min, float t_max, hit_record *hit) {
     hit_record temp;
     int hit_anything = 0;
     float closest_so_far = t_max;
