@@ -6,10 +6,10 @@
 struct material;
 
 typedef struct hit_record {
-  float t;
-  vec3 p;
-  vec3 normal;
-  struct material *mat;
+    float t;
+    vec3 p;
+    vec3 normal;
+    struct material *mat;
 } hit_record;
 
 #endif

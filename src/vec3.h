@@ -4,9 +4,9 @@
 #include <math.h>
 
 typedef struct vec3 {
-  float x;
-  float y;
-  float z;
+    float x;
+    float y;
+    float z;
 } vec3;
 
 float vec3_length(vec3 v);

@@ -6,9 +6,9 @@
 #include "hitable.h"
 
 typedef struct material {
-  vec3 albedo;
-  float ref_idx;
-  int (*scatter) (struct material *mat, ray r, struct hit_record *rec, vec3 *attenuation, ray *scattered);
+    vec3 albedo;
+    float ref_idx;
+    int(*scatter) (struct material *mat, ray r, struct hit_record *rec, vec3 *attenuation, ray *scattered);
 } material;
 
 int metal_scatter(material *mat, ray r_in, struct hit_record *rec, vec3 *attenuation, ray *scattered);
