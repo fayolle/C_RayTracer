@@ -50,8 +50,8 @@ ray camera_cast_ray(camera *cam, float s, float t) {
         vec3_multiply_float(cam->u, rd.x),
         vec3_multiply_float(cam->v, rd.y));
     return (ray) {
-        .A = vec3_add_vec(cam->origin, offset),
-            .B = vec3_subtract_vec(
+        .origin = vec3_add_vec(cam->origin, offset),
+            .direction = vec3_subtract_vec(
                 vec3_subtract_vec(
                     vec3_add_vec(
                         cam->lower_left_corner,

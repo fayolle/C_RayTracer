@@ -23,7 +23,7 @@ vec3 color(ray r, struct sphere *spheres, int nsph, int depth) {
         }
     }
     else {
-        //vec3 unit_direction = unit_vector(r.B);
+        //vec3 unit_direction = unit_vector(r.direction);
         //float t = 0.5f * (unit_direction.y + 1.0);
         vec3 white = { .x = 1.0f,.y = 1.0f,.z = 1.0f };
         //vec3 blue = { .x = 0.5f, .y = 0.7f, .z = 1.0f };

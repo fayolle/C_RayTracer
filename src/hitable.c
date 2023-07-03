@@ -2,9 +2,9 @@
 #include "hitable.h"
 
 int sphere_hit(sphere *sp, const ray *r, float t_min, float t_max, hit_record *hit) {
-    vec3 oc = vec3_subtract_vec(r->A, sp->center);
-    float a = vec3_dot(r->B, r->B);
-    float b = vec3_dot(oc, r->B);
+    vec3 oc = vec3_subtract_vec(r->origin, sp->center);
+    float a = vec3_dot(r->direction, r->direction);
+    float b = vec3_dot(oc, r->direction);
     float c = vec3_dot(oc, oc) - sp->radius * sp->radius;
     float discriminant = b * b - a * c;
 
