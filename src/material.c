@@ -55,7 +55,7 @@ float schlick(float cosine, float ref_idx) {
   return r0 + (1-r0) * pow((1 - cosine), 5);
 }
 
-int dielectric_scatter(material *mat, ray r_in, hit_record *rec, vec3 *attenuation, ray *scattered) {
+int dielectric_scatter(material *mat, ray r_in, struct hit_record *rec, vec3 *attenuation, ray *scattered) {
   vec3 outward_normal;
   vec3 reflected = reflect(r_in.B, rec->normal);
   float ni_over_nt;
